@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css" media="screen">
+		body,h5{
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+		}	
+		#panel{
+			width: 70%;
+			height: 736px;
+			position: relative;
+			top: 30px;
+			left: 50px;			
+			overflow: hidden;
+			vertical-align: middle;
+		}
+		.head{
+			border-radius: 3px;
+			cursor: pointer;
+			width: 99%;
+			height: 50px;
+			line-height: 50px;
+			font-size: 200%;
+			border: 1px solid #616060;
+			border-right: none;
+			text-indent: 1em;
+			background: rgba(75,74,74,0.3);
+			box-shadow: rgba(0,0,0,.7) -2px -2px 4px inset;
+		}
+		.content{
+
+			display: none;
+			width: 95%;
+			font-size: 200%;
+			text-indent: 2em;
+			padding: 2%;
+			border: 1px solid #616060;
+			border-right: none;
+			border-top: none;
+			margin-top: -4px;
+		}
+	</style>
+	<script type="text/javascript">
+	/*方法一 点击标题时显示内容：
+	$(function(){
+		$("#panel h5.head").bind('click',function() {
+			var $cont = $(this).next();//获取内容元素节点
+			if ($cont.is(':visible')) {//如“内容”显示
+				$(this).next().hide();
+			} else{
+				$(this).next().show();
+			}
+		});
+	})*/
+	/*方法二:改变绑定事件-鼠标滑过标题时显示内容
+	$(function(){
+		/*1. $("#panel h5.head").bind('mouseover',function() {		
+			//以下代码				
+		}).bind('mouseout',function(){
+			//代码
+		});*/
+		/**或者
+		*2.$("#panel h5.head").mouseover(function(){
+				$(this).next().show().css({'border-radius': '0 0 3px 3px','boxShadow': '-3px -3px 4px black inset'});
+			}).mouseout(function(){
+				$(this).next().hide();
+			});		
+		});*/	
+	/**方法三：hover()模拟鼠标悬停事件，移动到标题时出发第一个函数，移出标题时出发第二个函数
+		$(function(){
+			$("#panel h5.head").hover(function() {
+				$(this).next().show().css({'border-radius': '0 0 3px 3px','boxShadow': '-3px -3px 4px black inset'});
+			}, function() {
+				$(this).next().hide();
+			});
+		})*/ 
+	/**方法四:toggle(fn,fn,fn....),第一次单击元素时出发第一个函数fn,再一次单击同一个元素时出发第二个函数fn，如果有更多的函数依次触发*/
+		$(function(){
+			$("#panel h5.head").bind("click",function(){
+					$(this).next().toggle().css({'border-radius': '0 0 3px 3px','boxShadow': 'rgba(0,0,0,.6) -3px -3px 4px inset'});
+			});			
+		})
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head">什么是jQuery？</h5>
+		<div class="content">jQuery是继prototype之后又一个优秀的javascript库，它是由John Resig创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大的简化了javascript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了javascript程序员的设计思路和编写程序的方式。
+		</div>
+	</div>
+</body>
+</html>

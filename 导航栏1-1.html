@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏</title>
+	<style type="text/css" media="screen">
+		body,div,ul,li,a{
+			margin: 0;
+			padding: 0;
+		}	
+		ul,li{
+			list-style: none;
+			font-family: "微软雅黑";
+			font-size: 14px;
+			text-indent: 5px;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		.le1 a.current{
+			background-color: #4A4A4A;
+		}
+		.menu{
+			position: relative;
+			top: 40px;
+			left: 100px;
+			width: 130px;
+			border: 1px solid #767676;
+		}
+		.le1{
+			display: block;
+			width: 130px;
+			line-height: 24px;
+			background-color: #AAAAAA;
+			border-bottom:1px solid #ccc; 
+			overflow: hidden;
+			font-weight: 700;
+		}			
+		.menu li .le2{
+			display: none;	
+			background-color: #fff;			
+		}
+		.menu .le2 li a{
+			display: block;
+			height: 24px;
+			line-height: 24px;
+			color: #BEBCBC;
+			font-weight: 400;
+			text-indent: 10px;
+			overflow: hidden;
+		}
+		.le2 li a:hover{
+			color: #B10404;
+		}
+	</style>
+	<script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	$(function(){
+		$(".le1>a").bind('click', function() {
+			$(this).next().show().parent().siblings().children('ul').hide();
+		});
+	});
+	
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul class="menu">
+			<li class="le1">
+				<a href="#">衬衫</a>
+				<ul class="le2">
+					<li><a href="#">短袖衬衫</a></li>
+					<li><a href="#">长袖衬衫</a></li>
+					<li><a href="#">短袖T恤</a></li>
+					<li><a href="#">长袖T恤</a></li>
+				</ul>
+			</li>
+			<li class="le1">
+				<a href="#">卫衣</a>
+				<ul class="le2">
+					<li><a href="#">开襟卫衣</a></li>
+					<li><a href="#">套头卫衣</a></li>
+					<li><a href="#">运动卫衣</a></li>
+					<li><a href="#">童装卫衣</a></li>
+				</ul>
+			</li>
+			<li class="le1">
+				<a href="#">裤子</a>
+				<ul class="le2">
+					<li><a href="#">牛仔裤</a></li>
+					<li><a href="#">短裤</a></li>
+					<li><a href="#">长裤</a></li>
+					<li><a href="#">休闲裤</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
