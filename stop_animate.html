@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>停止动画</title>
+	<style type="text/css">
+	#panel,#panel1,#panel2{
+		position: relative;
+		width: 100px;
+		height: 100px;
+		background: #F09A9A;
+		border: 1px solid #484545;
+		cursor: pointer;
+		margin-bottom: 10px;
+	}
+	#panel3,#panel4{
+		width: 400px;
+		background-color:#84C63A;
+		border:1px solid #c3c3c3;
+	}
+	#panel3{
+		display: none;
+	}
+	#panel4{
+		position: relative;
+		width: 200px;
+		height: 150px;
+		display: block;
+		background-color: #84C63A;
+	}
+	</style>
+	<script src="scripts/jquery.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<div id="panel">animate</div>
+	<div id="panel1">animate</div>
+	<div id="panel2">animate</div>
+	<button id="start">开始滑动</button>
+	<button id="stop">停止滑动</button>
+	<button id="stop2">清空动画队列</button>
+	<button id="stop3">停止但要到达动画末端</button>
+	<p><b>开始动画：</b>启动动画</p>
+	<p><b>停止动画：</b>停止当前正在执行的动画，队列里的动画继续依次执行</p>
+	<p><b>清空动画队列：</b>按钮停止当前动画，并清空动画队列，因此元素上的所有动画都会停止</p>
+	<p><b>停止但要到达动画末端：</b> stop(true,true)会立即完成当前活动的动画，然后清空动画队列；stop(false,true)让当前动画直接到达末状态，队列里的下一个动画继续依次执行</p>
+	<div id="panel3">点击这里向下滑动</div>
+	<div id="panel4">HELLO!!</div>
+
+<script type="text/javascript">
+	//#panel向右移动的同时放大高度
+	$(function(){
+		$("#panel").click(function() {
+			$(this).animate({left:"500px",height:"200px"}, 2000);
+		});
+	})
+	//#panel1先执行向右滑动再执行高度变化
+	$(function(){
+		$("#panel1").click(function(){
+			$(this).animate({left:"500px"}, 2000)
+				   .animate({height:"200px"}, 2000);
+		})
+	})
+	//#panel2综合动画
+	$(function(){
+		$("#panel2").click(function() {
+			$(this).animate({left:"400px",height:"200px",opacity:"1"}, 2000)
+					.animate({top:"200px",width:"200px"}, 2000,function(){
+						$(this).css('border', '3px blue solid');
+					});	//css()一开始动画的时候就会被执行，因为它不在动画队列中，放在回调函数里可以等所有动画完成后再执行			     
+		});
+	})
+	
+	$(function(){
+		/*  //停止动画	
+		$("#panel3").bind("click",function() {
+			$("#panel4").slideDown(2000);
+		});
+		$("#stop").click(function(){
+			$("#panel4").stop();
+		});*/
+	
+		//带参数的stop()--停止动画
+		var $pan = $("#panel4,#panel");
+		$("#start").click(function(){
+			$pan.animate({left:"200px"}, 5000).animate({fontSize:"3em"},5000);		
+		})
+		$("#stop").click(function(){
+			$pan.stop();
+		});
+		$("#stop2").click(function(){
+			$pan.stop(true);
+		});
+		$("#stop3").click(function(){
+			$pan.stop(false,true);
+		});
+	})
+</script>
+</body>
+</html>
