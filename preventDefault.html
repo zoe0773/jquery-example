@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止元素默认行为</title>
+	<script src="scripts/jquery.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<form action="" method="get" accept-charset="utf-8">
+		用户名：<input type="text" id="username" />	
+		<input type="submit" id="sub" value="提交">
+	</form>
+	<div id="msg"></div>
+<script type="text/javascript">
+	$(function(){
+		$("#sub").bind('click', function(event) {
+				var username = $("#username").val();//获取元素的值
+				if (username == "") {
+					$("#msg").html("<p>文本框的值不能为空</p>");//提示信息
+					event.preventDefault();//阻止表单提交
+				}
+		});
+	})
+</script>
+</body>
+</html>
