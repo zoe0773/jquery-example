@@ -1,0 +1,140 @@
+body,div,span,h4,h2,ul,li{
+	margin: 0;
+	padding: 0;
+}
+body{
+	color: #333;
+	font: 12px/1.5em Helvetica, Arial, sans-serif;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #2B93D2;
+}
+img{
+	border: none;
+}
+div.v_show{ /*最外层盒子*/
+	width: 595px;
+	position: relative;
+	left: 100px;
+	top: 30px;
+
+}
+div.v_cap{/*上标题盒子*/
+	height: 35px;
+	background: url(../img/btn_cartoon.gif) no-repeat 0 0;
+	overflow: hidden;
+}
+.v_cap h2{/**/
+	float: left;
+	width: 84px;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	background: url(../img/btn_cartoon.gif) no-repeat;
+	text-indent: -9999px;/*将文字内容所缩进到屏幕看不到的地方但是搜索引擎可以索引到*/
+}
+.v_cap .cartoon{/*h2*/
+	background-position: 0 -100px;
+}
+.v_cap .variety{/*卡通动漫切换时的另一个标题-综艺娱乐*/
+	background-position: -100px -100px;
+}
+.highlight_tip{
+	display: inline;
+	margin: 14px 0 0 10px;
+	float: left;
+}
+.highlight_tip span{
+	display: inline;
+	float: left;
+	width: 7px;
+	height: 7px;
+	overflow: hidden;
+	background: url(../img/btn_cartoon.gif) no-repeat;
+	background-position: 0 -320px;
+	text-indent: -9999px;
+	margin: 0 2px;
+}
+.highlight_tip .current{
+	background-position: 0 -220px;
+}
+.change_bt{/*前一页后一页*/
+	float: left;
+	margin: 6px 0 0 10px;
+}
+.change_bt span{
+	float: left;
+	width: 30px;
+	height: 23px;
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	cursor: pointer;
+	background: url(../img/btn_cartoon.gif) no-repeat;
+}
+.change_bt .prev{
+	background-position: 0 -400px;
+}
+.change_bt .next{
+	background-position: -30px -400px;
+}
+.v_cap em{
+	float: right;
+	margin: 10px 12px 0 0;
+	font-family: simsun;
+	display: inline;
+}
+div.v_content{/*下内容盒子*/
+	position: relative;
+	width: 592px;
+	height: 160px;
+	overflow: hidden;
+	border-right: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	border-left: 1px solid #e7e7e7;
+}
+.v_content_list{
+	position: absolute;
+	width: 2500px;
+	top: 0;
+	left: 0;
+}
+.v_content ul{
+	float: left;
+}
+.v_content ul li{/*li半内联元素*/
+	display: inline;
+	float: left;
+	padding: 8px;
+	margin: 10px 2px 0;
+}
+.v_content ul li a{
+	display: block;
+	overflow: hidden;
+}
+.v_content li img{
+	width: 128px;
+	height: 90px;
+}
+.v_content li h4{
+	width: 128px;
+	height: 18px;
+	overflow: hidden;
+	font-weight: normal;
+}
+.v_content li h4 a{
+	display: inline !important;
+	height: auto !important;
+}
+.v_content ul li span {
+	color: #666;
+}
+.v_content ul li em {
+	color: #888;
+	font-family: Verdana;
+	font-size: 0.9em;
+}
