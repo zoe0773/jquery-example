@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生信息</title>
+	<style type="text/css">
+	.tb{
+		margin:20px auto;
+		border-collapse: collapse;
+		font-size: 12px;
+		text-align: center;
+		color: #666;
+	}
+	.tb th{
+		background-color: #f0f0f0;
+	}
+	.tb th,.tb td{
+		padding: 4px 8px;
+		border: 1px solid #ccc;
+	}	
+	</style>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+	<table class="tb" width="500" id="stuInf">
+		<caption><h2>XX中学学生详细信息</h2></caption>
+		<thead>
+			<tr>
+				<th width="40px">序号</th>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>成绩</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="5">
+					<input type="button" value="点击查询详情" onclick="mes()" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript">
+		var jsonStu = [
+		{"name":'lily',"age":'12',"id":'001',"score":'89'},
+		{"name":'mango',"age":'13',"id":'002',"score":'90'}
+		];
+		function mes(){
+			var tbody = $("#stuInf").find('tbody');
+			tbody.empty();
+			$.each(jsonStu,function(index, el) {
+				tbody.append('<tr><td>'+parseInt(index+1)+'</td><td>'+el.id+'</td><td>'+el.name+'</td><td>'+el.age+'</td><td>'+el.score+'</td></tr>');
+			});
+		}
+	</script>
+</body>
+</html>
